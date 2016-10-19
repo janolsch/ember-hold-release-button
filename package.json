@@ -1,7 +1,7 @@
 {
-  "name": "ember-hold-button",
+  "name": "ember-hold-release-button",
   "version": "0.3.4",
-  "description": "Hold to confirm buttons for ember-cli. Avoid intrusive modals.",
+  "description": "Hold to confirm buttons for ember-cli. Avoid intrusive modals. Stolen from Add Jam: ember-hold-button.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AddJam/ember-hold-button"
+    "url": "https://github.com/manuel-reil/ember-hold-release-button"
   },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "Add Jam",
+  "author": "Manuel Reil",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -57,5 +57,5 @@
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
-  "homepage": "https://github.com/AddJam/ember-hold-button"
+  "homepage": "https://github.com/manuel-reil/ember-hold-release-button"
 }

@@ -1,9 +1,8 @@
-[![npm version](https://badge.fury.io/js/ember-hold-button.svg)](http://badge.fury.io/js/ember-hold-button)
-[![Travis CI](https://travis-ci.org/AddJam/ember-hold-button.svg)](https://travis-ci.org/AddJam/ember-hold-button)
+# ember-hold-release-button
 
-# ember-hold-button
+Stolen from Add Jam: ember-hold-button.
 
-Hold to confirm buttons, easily customisable, for ember-cli. After holding on the button for a specified amount of time, the given action is performed (e.g. hold to delete).
+Hold to confirm buttons, easily customisable, for ember-cli. After holding on the button for a specified amount of time, the button is ready to shoot. Once you release the mouse button, the given action is performed (e.g. hold to delete).
 
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
@@ -12,7 +11,7 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 
 ## Installation
 
-`ember install ember-hold-button`
+`ember install ember-hold-release-button`
 
 ## Usage
 
