@@ -9,7 +9,7 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
   layout: layout,
   tagName: 'button',
   classNames: ['ember-hold-button'],
-  classNameBindings: ['isHolding', 'isComplete', 'type'],
+  classNameBindings: ['isHolding', 'isComplete', 'isHold', 'type'],
   attributeBindings: ['style'],
 
   delay: 500,
@@ -17,6 +17,7 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
 
   timer: null,
   isHolding: false,
+  isHold: false,
   isComplete: false,
 
   style: Ember.computed('delay', function() {
@@ -53,6 +54,7 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
     if (!this.get('timer')) {
       this.set('isComplete', false);
       this.set('isHolding', true);
+      this.set('isHold', false);
 
       this.off('mouseDown');
       this.on('mouseUp', this, this.cancelTimer);
@@ -67,6 +69,7 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
 
   cancelTimer() {
     this.set('isHolding', false);
+    this.set('isHold', false);
     Ember.run.cancel(this.get('timer'));
     this.set('timer', null);
     this.off('mouseUp');
@@ -78,12 +81,20 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
 
   timerFinished() {
     if (this.get('isHolding') && !this.get('isComplete')) {
-      const params = this.getWithDefault('params', []);
-      const actionParams = ['action', ...params];
-      this.sendAction(...actionParams);
-      this.set('isComplete', true);
-      this.registerHandler();
+      this.set('isHold', true);
+      this.on('mouseUp', this, this.sendTheAction);
     }
+  },
+
+  sendTheAction() {
+    const params = this.getWithDefault('params', []);
+    const actionParams = ['action', ...params];
+    this.sendAction(...actionParams);
+    this.set('isComplete', true);
+    this.set('isHold', false);
+    this.registerHandler();
+    this.off('mouseUp');
+    this.off('mouseLeave');
   }
 });
 
